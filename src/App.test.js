@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import App from "./App";
+import { render } from "@testing-library/react";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App component", () => {
+  test("ensure the heading is correct", () => {
+    const { getByRole } = render(<App />);
+    expect(getByRole("heading").textContent).toMatch(/our first test/i);
+  });
 });
